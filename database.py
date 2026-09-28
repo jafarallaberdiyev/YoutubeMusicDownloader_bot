@@ -16,7 +16,6 @@ def create_table_history():
     db.close()
 
 
-# create_table_history()
 
 
 def save_history(*args):
@@ -57,7 +56,6 @@ def create_table_users():
     db.close()
 
 
-# create_table_users()
 
 def save_user_data(*args):
     db = sqlite3.connect('audiodown.db')
@@ -79,3 +77,8 @@ def get_user(chat_id):
     user = cursor.fetchone()
     db.close()
     return user
+
+
+# Create tables on first run (safe to call repeatedly)
+create_table_history()
+create_table_users()
